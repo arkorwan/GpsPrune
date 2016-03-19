@@ -67,6 +67,7 @@ public class MenuManager implements DataSubscriber
 	private JMenuItem _deleteMarkedPointsItem = null;
 	private JMenuItem _deleteByDateItem = null;
 	private JMenuItem _interpolateItem = null;
+	private JMenuItem _redistributePointsItem = null;
 	private JMenuItem _averageItem = null;
 	private JMenuItem _selectAllItem = null;
 	private JMenuItem _selectNoneItem = null;
@@ -437,6 +438,8 @@ public class MenuManager implements DataSubscriber
 		rangeMenu.addSeparator();
 		_interpolateItem = makeMenuItem(new ChooseSingleParameter(_app, FunctionLibrary.FUNCTION_INTERPOLATE), false);
 		rangeMenu.add(_interpolateItem);
+		_redistributePointsItem = makeMenuItem(FunctionLibrary.FUNCTION_REDISTRIBUTE_POINTS, false);
+		rangeMenu.add(_redistributePointsItem);
 		_averageItem = new JMenuItem(I18nManager.getText("menu.range.average"));
 		_averageItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -956,6 +959,7 @@ public class MenuManager implements DataSubscriber
 		_deleteRangeButton.setEnabled(hasRange);
 		_cropTrackItem.setEnabled(hasRange);
 		_interpolateItem.setEnabled(hasRange);
+		_redistributePointsItem.setEnabled(hasRange);
 		_averageItem.setEnabled(hasRange);
 		_mergeSegmentsItem.setEnabled(hasRange);
 		_reverseItem.setEnabled(hasRange);

@@ -67,6 +67,7 @@ public class App
 	private boolean _autoAppendNextFile = false;
 	private boolean _busyLoading = false;
 	private AppMode _appMode = AppMode.NORMAL;
+	private DataPoint[] _temporaryPoints = null;
 
 	/** Enum for the app mode - currently only two options but may expand later */
 	public enum AppMode {NORMAL, DRAWRECT};
@@ -1000,5 +1001,13 @@ public class App
 	/** @param inMode the current app mode */
 	public void setCurrentMode(AppMode inMode) {
 		_appMode = inMode;
+	}
+	
+	public void saveTemporaryPoints(DataPoint[] dataPoints){
+		_temporaryPoints = dataPoints;
+	}
+	
+	public DataPoint[] getTemporaryPoints(){
+		return _temporaryPoints;
 	}
 }
