@@ -67,6 +67,7 @@ public class MenuManager implements DataSubscriber
 	private JMenuItem _deleteMarkedPointsItem = null;
 	private JMenuItem _deleteByDateItem = null;
 	private JMenuItem _interpolateItem = null;
+	private JMenuItem _memorizePointsItem = null;
 	private JMenuItem _redistributePointsItem = null;
 	private JMenuItem _averageItem = null;
 	private JMenuItem _selectAllItem = null;
@@ -438,7 +439,9 @@ public class MenuManager implements DataSubscriber
 		rangeMenu.addSeparator();
 		_interpolateItem = makeMenuItem(new ChooseSingleParameter(_app, FunctionLibrary.FUNCTION_INTERPOLATE), false);
 		rangeMenu.add(_interpolateItem);
-		_redistributePointsItem = makeMenuItem(FunctionLibrary.FUNCTION_REDISTRIBUTE_POINTS, false);
+		_memorizePointsItem = makeMenuItem(FunctionLibrary.FUNCTION_MEMORIZE_POINTS, false);
+		rangeMenu.add(_memorizePointsItem);
+		_redistributePointsItem = makeMenuItem(FunctionLibrary.FUNCTION_REDISTRIBUTE_FROM_MEMORIZED, false);
 		rangeMenu.add(_redistributePointsItem);
 		_averageItem = new JMenuItem(I18nManager.getText("menu.range.average"));
 		_averageItem.addActionListener(new ActionListener() {
@@ -959,7 +962,7 @@ public class MenuManager implements DataSubscriber
 		_deleteRangeButton.setEnabled(hasRange);
 		_cropTrackItem.setEnabled(hasRange);
 		_interpolateItem.setEnabled(hasRange);
-		_redistributePointsItem.setEnabled(hasRange);
+		_memorizePointsItem.setEnabled(hasRange);
 		_averageItem.setEnabled(hasRange);
 		_mergeSegmentsItem.setEnabled(hasRange);
 		_reverseItem.setEnabled(hasRange);
@@ -982,6 +985,11 @@ public class MenuManager implements DataSubscriber
 		if (_mapCheckbox.isSelected() != mapsOn) {
 			_mapCheckbox.setSelected(mapsOn);
 		}
+		
+		// memorized points?
+		boolean hasMemorized = _app.getTemporaryPoints() != null;
+		_redistributePointsItem.setEnabled(hasRange && hasMemorized);
+		
 		// Are there any recently-used files?
 		RecentFileList rfl = Config.getRecentFileList();
 		final int numRecentFiles = rfl.getNumEntries();

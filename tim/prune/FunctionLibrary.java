@@ -59,7 +59,8 @@ public abstract class FunctionLibrary
 	public static GenericFunction FUNCTION_MARK_IN_RECTANGLE = null;
 	public static GenericFunction FUNCTION_DELETE_BY_DATE = null;
 	public static SingleNumericParameterFunction FUNCTION_INTERPOLATE = null;
-	public static GenericFunction FUNCTION_REDISTRIBUTE_POINTS = null;
+	public static GenericFunction FUNCTION_MEMORIZE_POINTS = null;
+	public static GenericFunction FUNCTION_REDISTRIBUTE_FROM_MEMORIZED = null;
 	public static GenericFunction FUNCTION_LOOKUP_SRTM = null;
 	public static GenericFunction FUNCTION_DOWNLOAD_SRTM = null;
 	public static GenericFunction FUNCTION_NEARBY_WIKIPEDIA = null;
@@ -126,7 +127,8 @@ public abstract class FunctionLibrary
 		FUNCTION_SAVECONFIG = new SaveConfig(inApp);
 		FUNCTION_EDIT_WAYPOINT_NAME = new PointNameEditor(inApp);
 		FUNCTION_REARRANGE_WAYPOINTS = new RearrangeWaypointsFunction(inApp);
-		FUNCTION_REDISTRIBUTE_POINTS = new RedistributePointFunction(inApp);
+		FUNCTION_MEMORIZE_POINTS = new MemorizePointsFunction(inApp);
+		FUNCTION_REDISTRIBUTE_FROM_MEMORIZED = new RedistributePointsFunction(inApp);
 		FUNCTION_SELECT_SEGMENT = new SelectSegmentFunction(inApp);
 		FUNCTION_SPLIT_SEGMENTS = new SplitSegmentsFunction(inApp);
 		FUNCTION_SEW_SEGMENTS = new SewTrackSegmentsFunction(inApp);
