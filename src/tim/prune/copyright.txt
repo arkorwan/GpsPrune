@@ -1,0 +1,9 @@
+The source code of GpsPrune is copyright 2006-2021 activityworkshop.net
+and is distributed under the terms of the Gnu GPL version 2.
+
+Portions of the package jpeg.drew were taken
+from Drew Noakes' "Metadata extractor" v2.7.2 which is
+copyright Drew Noakes 2002-2015 and released under Apache 2.0.
+
+Translations are copyright various contributors, some of whom are named
+in the source code and some preferred to remain anonymous.
